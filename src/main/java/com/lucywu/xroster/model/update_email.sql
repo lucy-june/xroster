@@ -1,0 +1,1 @@
+update tbl_student set email=lower(replace(tbl_student.name,' ','_')) || floor(random()*999) || 'qq.com'

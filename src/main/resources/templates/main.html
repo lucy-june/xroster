@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>XRoster</title>
+
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-1.12.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/date-1.2.3/date.format.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/lib/jquery-json-2.3/jquery.json.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/lib/jquery-i18n-properties-1.0.9/jquery.i18n.properties.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/main.js"></script>
+
+    <link href="http://localhost:8080/lib/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/reset.css" rel="stylesheet" type="text/css"/>
+
+    <link href="http://localhost:8080/css/base.css" rel="stylesheet" type="text/css"/>
+
+    <link href="http://localhost:8080/css/info.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/table.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/pager.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="http://localhost:8080/image/favicon.ico"/>
+
+    <style type="text/css">
+        .fillleft {float:left;margin-left:10px;}
+        .info-input {width:100%;height:22px}
+        .btn-corner {width:100px;margin-bottom:20px}
+        .ta-background{position:fixed;z-index:-1;height:100%;width:100%;background-size:cover}
+    </style>
+
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    $(function(){
+            var lang=[[${lang}]];
+            if(!lang){
+                document.getElementById("lang_select").options[0].selected = true;
+            }
+            else if(lang=="zh-CN"){
+                document.getElementById("lang_select").options[2].selected = true;
+            }
+            else{
+                document.getElementById("lang_select").options[1].selected = true;
+            }
+            changeLang();
+
+
+            var role=[[${role}]];
+
+            if(role==1){//teacher
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+            else if(role==2){//student
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","display:none");
+                $(".header_left ul li:eq(4)").attr("style","display:none");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_add","/teacher_query"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_add","/student_query"));
+            }
+            else{
+                $(".header_left ul li:eq(0)").attr("style","");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+
+
+
+        });
+	/*]]>*/
+	</script>
+</head>
+<body>
+<!--头部-->
+
+<div class="header">
+    <div class="header_left">
+        <div class="logo">
+            <a id="logo_a" href="/main"><img src="http://localhost:8080/image/XRoster3_zh.png"/></a>
+            <div class="line"> </div>
+            <div class="logo2" id="welcome">
+            </div>
+        </div>
+        <ul class="tab">
+            <li>
+                <a href="/account_manage">
+                    <img src="http://localhost:8080/image/base/user.png"/> <span id="account_manage"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/teacher_add">
+                    <img src="http://localhost:8080/image/base/nav_1.png"/> <span id="teacher_info"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/student_add">
+                    <img src="http://localhost:8080/image/base/nav_9.png"/> <span id="student_info"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/custom_import">
+                    <img src="http://localhost:8080/image/base/nav_6.png"/> <span id="grade_management"></span>
+                </a>
+            </li>
+            <li>
+                <a href="attendance_add">
+                    <img src="http://localhost:8080/image/base/nav_4.png"/> <span id="attendance_management"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/analysis_table">
+                    <img src="http://localhost:8080/image/base/nav_5.png"/> <span id="grade_analysis"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/statistics_attendance">
+                    <img src="http://localhost:8080/image/base/nav_7.png"/> <span id="attendance_statistics"></span>
+                </a>
+            </li>
+        </ul>
+        <div >
+            <a href="/logout">
+                <button class="btn btn-primary btn-sm quit" align="right" type="submit" id="logout" onclick="pass()"></button>
+            </a>
+            <select class="lang_slt" id="lang_select" onchange="changeLang()">
+            	<option id="default_opt" value=""> </option>
+            	<option value="en-US"> English</option>
+            	<option value="zh-CN"> 中文</option>
+            </select> 
+        </div>
+
+    </div>
+</div>
+
+
+<!--主体-->
+
+
+
+
+<div id="ta-background" class="ta-background" style="background-image: url(&#39;http://localhost:8080/image/background.jpg&#39;); opacity: 1;">
+</div>
+
+<!--<div >-->
+    <!--<img style="width:100%" src="http://localhost:8080/image/background.jpg"/>-->
+<!--</div>-->
+
+
+</body>
+</html>

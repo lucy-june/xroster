@@ -1,0 +1,72 @@
+/*tab页锟斤拷锟斤拷图锟斤拷锟斤拷 | 锟斤拷锟竭对憋拷 | 锟斤拷荻员锟� */
+.left_top{height:60%;border-bottom:1px #E3E3E3 solid;padding:30px;}
+.left_bottom{padding: 30px;}
+.font_title{font-size: 15px;font-weight:bold;margin: 10px;}
+.over_checkbox{margin-left: 35px;}
+.over_checkbox input{margin:5px;font-size: 17px;}
+.header_tab2{width:100%; background:#f3f2f2; border-bottom:1px #329ae2 solid; overflow:hidden; }
+.top_nav{margin:6px 6px 6px 116px; }
+.top_nav a{color:#848484;font-size:13px; margin-left:30px; line-height:21px;text-decoration:none;}
+.top_nav a.info_disp{color:#38a0f0;}
+.top_nav_selected span{color:#329ae2;}
+.top_nav a span:hover{color:#329ae2;}
+
+.name_input{margin-left: 40px;margin-bottom: 10px;}
+input .name{width:20px;}
+.duichang_result{padding: 5px;overflow: auto;}
+.duichang_item{padding: 5px;}
+
+/*tab页锟斤拷PM2.5 | PM10 | 锟斤拷锟斤拷 */
+.header_tab3{width:100%;height:39px; border-bottom:1px #85b75f solid; background:#f3f1f2; overflow:hidden;}
+.header_tab3_selected span{color:#fa7d3c;}
+.header_tab3 a span:hover{color:#fa7d3c;}
+.tab2 span {position:relative;left:-14px;}
+.tab2{width:300px;height:35px; float:right;margin-right:50px; margin-top:6px;}
+.tab2 li{width:68px;height:34px; float:left; text-align:center; line-height:35px;font-size:14px; margin-left:7px;background:url(/v3/images/main/frame.png);}
+.tab2 li a{ color:#878686; display:block; text-decoration:none;font-family:"微锟斤拷锟脚猴拷";}
+
+/*tab页锟斤拷实时锟斤拷锟� | 小时锟斤拷锟� */
+.header_tab4{width:100%;height:60px; position:relative;}
+.time_type{width:186px;height:36px; margin:12px auto;}
+.time_type li{ float:left;width:93px;height:36px;}
+.time_type li a{ font-size:16px; display:block; text-decoration:none;font-family:"微锟斤拷锟脚猴拷"; }
+.time_type_selected{ background:url(/v3/images/main/data.png); color:#FFFFFF;width:93px;height:36px; text-align:center; line-height:36px;}
+.time_type_unselected{ background:url(/v3/images/main/data1.png); color:#6dac33;width:93px;height:36px; text-align:center; line-height:36px;}
+
+.main_container{width:100%;position:absolute;top:150px;bottom:35px;overflow:auto;}
+.top_right_recv_time{position:absolute;top:-40px;right:100px;float:right;}
+.top_right_recv_time span{position:relative;top:4px;font-family:"微锟斤拷锟脚猴拷";font-size:18px;}
+/*锟斤拷图锟斤拷锟斤拷*/
+.map_canvas{top:0px;bottom:30px;left:20px;right:20px;position:absolute; margin:0 auto;}
+.tip{position: absolute;top:0;background: gainsboro;width:100%;height: 7%;padding:10px;filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;  }
+.notification{width:60px;font-size: 13px;font-weight: bold;display:inline-block;}
+.notification_cont{display:inline-block;color:red;font-weight: bold;height: 13px;
+    line-height: 13px;overflow: hidden;  }
+.notification_cont li{height: 13px; padding-left: 5px;  }
+.notification_time{float: right;display: inline-block;}
+.notification_time .real_time{display: inline-block;}
+
+.direction{height:19px;right:20px;margin:auto auto;position:absolute;bottom:40px;}
+.direction span{font-family:"微锟斤拷锟脚猴拷"; font-size:10px;}
+.choose_district{width:100px;}
+/*锟斤拷锟竭对憋拷*/
+.curve_container{width:90%;height:95%;margin:auto;border:1px #E3E3E3 solid;margin-top: 30px;}
+.curve_canvas{left:20px;right:20px;position:absolute;}
+.curve_compare_tab_selected{}
+.curve_time{font-size: 14px;position:absolute;right:150px;top:100px;}
+.curve_refresh{width: 60px;height: 20px;position:absolute;right:70px;top:100px;}
+/*锟斤拷荻员锟�*/
+.data_compare_canvas{width:100%;}
+
+.choose_pop{position:absolute;width: 160px;height: 118px;}
+.choose_pop img{position:absolute;max-width:160px;_width:expression(this.width > 160 ? "160px" : this.width);}
+.choose_pop .upbtn{position:absolute;top:20px;margin-left:30px;width:100px;height:30px;background:url(http://localhost:8080/images/compare/but1.png); }
+.choose_pop .downbtn{position:absolute;top:60px;margin-left:30px;width:100px;height:30px;background:url(http://localhost:8080/images/compare/but2.png); }
+
+.detail_container{width:77%; margin:0 auto; overflow:auto;}
+
+.addSite{position: absolute;left:10%;top:100px;}
+.siteInfo img{float: right;margin-right: 10px;}

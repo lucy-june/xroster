@@ -1,0 +1,44 @@
+html, body{height:100%;}
+.my_container{width:100%; height:80%;padding:30px;position:relative;}
+.my_container .main_right{z-index:2;left:300px;top:20px;bottom:35px;border-right:1px #329ae2 solid; position:absolute;overflow:auto;}
+.my_container .left_container{width:30%;height:100%;float:left;position:relative;border:1px #E3E3E3 solid;border-right-style:none;}
+.my_container .right_container{width:70%;height:100%;display:inline-block;position:relative;border:1px #E3E3E3 solid;}
+/*澶撮儴*/
+.header{ width:100%; margin:0 auto; background: #0b74bd; overflow:auto; }
+.header_tab1{width:100%;height:40px;}
+.header_left{width:100%;height:40px;background:url(http://localhost:8080/image/base/background.png) repeat;}
+.header .header_left .logo{width:350px;height:30px; top: 5px;left:10px;font-size:14px;color: white;z-index:1;float:left;}
+#logo_a{position: absolute;margin-top:8px;margin-left:6px}
+.logo2{font-size:12px;font-style:italic;top:5px;left:145px;position: absolute; width: 200px;margin-top:10px}
+ .line{width:10px;height:25px;margin:auto;left:118px;position: absolute;border-right:2px #E3E3E3 solid;opacity: 0.2; margin-top:8px}
+/*绗簩琛岃彍鍗曟爮*/
+.header_tab2{width:100%; background:#f3f2f2; border-bottom:1px #329ae2 ; }
+.top_nav{margin:6px 6px 6px 116px;}
+.top_nav a{color:#848484;font-size:13px; margin-left:30px; line-height:21px;text-decoration:none;}
+.top_nav a.info_disp{color:#38a0f0;}
+.top_nav_selected span{color:#329ae2;}
+.top_nav a span:hover{color:#329ae2;}
+
+.header .header_left .tab{width:950px; height:40px; float:left; }
+.tab li{ float:left; width:120px; height:40px; text-align:center; line-height:40px;font-size:13px; font-family:"寰蒋闆呴粦";}
+.tab li a{ color:#FFF; width:105px; height:40px; display:block; text-decoration:none;}
+.tab li a img {vertical-align:middle;}
+.tab li a span {vertical-align:middle;}
+.tab li a:hover{background:#329ae2; text-decoration:none;}
+.tab_selected{background:#329ae2;}
+.tab li .dropdown-menu {margin: 0;}
+.tab li:hover .dropdown-menu {display: block;}
+.tab li .dropdown-menu a{color:black;width:120px;height:40px;}
+.tab li .dropdown-menu a span{position:relative;top:10px;}
+.tab li .dropdown-menu a:hover{background:#5c9d2fe; text-decoration:none;}
+.quit{width: 60px;height: 24px;position:absolute;right:5px;top:8px;border-color:#FFFFFF;padding:1px 1px}
+.lang_slt {width: 68px;height: 24px;position:absolute;right:80px;top:8px;border-color:#FFFFFF;padding:1px 1px}
+/*鏃ユ湡鎺т欢闅愯棌涓�涓鎬殑div*/
+#ui-datepicker-div{display:none;}
+
+/*搴曢儴*/
+.footer{width:100%;height:35px; background:url(http://localhost:8080/image/base/background.png); overflow:hidden;position:absolute;bottom: 0;}
+.footer p{color:#FFF; font-family:"寰蒋闆呴粦";font-size:12px; float:right; text-align:center; margin:10px 20px 0px 0px;}
+.footer p img{width: 20px;height: 20px;}
+
+#birthday,#start_date,#contract_date,#end_date {height:18px}

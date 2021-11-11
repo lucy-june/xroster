@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>XRoster</title>
+
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-1.12.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/date-1.2.3/date.format.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-json-2.3/jquery.json.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-i18n-properties-1.0.9/jquery.i18n.properties.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/main.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/analysis_table.js"></script>
+    <!--<script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-cn.js"></script>-->
+    <script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/reveal.js"></script>
+
+    <link href="http://localhost:8080/lib/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/reset.css" rel="stylesheet" type="text/css"/>
+
+    <link href="http://localhost:8080/css/base.css" rel="stylesheet" type="text/css"/>
+
+    <link href="http://localhost:8080/css/info.css" rel="stylesheet" type="text/css"/>
+
+    <link href="http://localhost:8080/css/table.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/pager.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/lib/jquery-ui-1.11.4/themes/cupertino/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="http://localhost:8080/image/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:8080/lib/jqgrid-5.1.0/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="http://localhost:8080/css/reveal.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/lib/canvasloader-1.0/index.css"/>
+    <script type="text/javascript" src="http://localhost:8080/lib/canvasloader-1.0/heartcode-canvasloader.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/canvasloader-1.0/index.js"></script>
+
+    <style type="text/css">
+        .fillleft {float:left;margin-left:10px;}
+        .info-input {width:100%;height:22px}
+        .btn-corner {width:100px;margin-bottom:20px}
+        .ui-jqgrid {z-index:0}
+        .ui-pg-input.ui-corner-all {height: 20px;color:#2779AA;}
+    </style>
+    <script>
+         $(function(){
+            $(window).bind('resize', function() {
+                jQuery("#gradesTable").setGridWidth($("#tb_dv").width()*0.95);
+            });
+        });
+    </script>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    $(function(){
+            var lang=[[${lang}]];
+            if(!lang){
+                document.getElementById("lang_select").options[0].selected = true;
+            }
+            else if(lang=="zh-CN"){
+                document.getElementById("lang_select").options[2].selected = true;
+            }
+            else{
+                document.getElementById("lang_select").options[1].selected = true;
+            }
+            changeLang();
+
+
+            var role=[[${role}]];
+
+            if(role==1){//teacher
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+            else if(role==2){//student
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","display:none");
+                $(".header_left ul li:eq(4)").attr("style","display:none");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_add","/teacher_query"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_add","/student_query"));
+            }
+            else{
+                $(".header_left ul li:eq(0)").attr("style","");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+
+
+
+
+        });
+	/*]]>*/
+	</script>
+</head>
+<body>
+<!--头部-->
+
+<div class="header">
+    <div class="header_left">
+        <div class="logo">
+            <a id="logo_a" href="/main"><img src="http://localhost:8080/image/XRoster3_zh.png"/></a>
+            <div class="line"> </div>
+            <div class="logo2" id="welcome">
+            </div>
+        </div>
+        <ul class="tab">
+            <li>
+                <a href="/account_manage">
+                    <img src="http://localhost:8080/image/base/user.png"/> <span id="account_manage"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/teacher_add">
+                    <img src="http://localhost:8080/image/base/nav_1.png"/> <span id="teacher_info"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/student_add">
+                    <img src="http://localhost:8080/image/base/nav_9.png"/> <span id="student_info"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/custom_import">
+                    <img src="http://localhost:8080/image/base/nav_6.png"/> <span id="grade_management"></span>
+                </a>
+            </li>
+            <li>
+                <a href="attendance_add">
+                    <img src="http://localhost:8080/image/base/nav_4.png"/> <span id="attendance_management"></span>
+                </a>
+            </li>
+            <li class="tab_selected">
+                <a href="/analysis_table">
+                    <img src="http://localhost:8080/image/base/nav_5.png"/> <span id="grade_analysis"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/statistics_attendance">
+                    <img src="http://localhost:8080/image/base/nav_7.png"/> <span id="attendance_statistics"></span>
+                </a>
+            </li>
+        </ul>
+        <div >
+            <a href="/logout">
+                <button class="btn btn-primary btn-sm quit" align="right" type="submit" id="logout" onclick="pass()"></button>
+            </a>
+            <select class="lang_slt" id="lang_select" onchange="changeLang()">
+            	<option id="default_opt" value=""> </option>
+            	<option value="en-US"> English</option>
+            	<option value="zh-CN"> 中文</option>
+            </select> 
+        </div>
+
+    </div>
+</div>
+
+
+<div class="header_tab2">
+    <div class="top_nav">
+        <a class="top_nav_selected" href="/analysis_table">
+            <img src="http://localhost:8080/image/base/12.png"/>
+            <span id="analysis_table"></span>
+        </a>
+        <a class="top_nav" href="/analysis_tablesub">
+            <img src="http://localhost:8080/image/base/12.png"/>
+            <span id="analysis_tablesub"></span>
+        </a>
+        <a class="top_nav" href="/analysis_personal_radar">
+            <img src="http://localhost:8080/image/base/11.png"/>
+            <span id="analysis_personal_radar"></span>
+        </a>
+        <a class="top_nav" href="/analysis_personal_radarsub">
+            <img src="http://localhost:8080/image/base/11.png"/>
+            <span id="analysis_personal_radarsub"></span>
+        </a>
+        <a class="top_nav" href="/analysis_stage">
+            <img src="http://localhost:8080/image/base/10.png"/>
+            <span id="analysis_stage"></span>
+        </a>
+        <a class="top_nav" href="/analysis_mark">
+            <img src="http://localhost:8080/image/base/9.png"/>
+            <span id="analysis_mark"></span>
+        </a>
+        <a class="top_nav" href="/analysis_rank">
+            <img src="http://localhost:8080/image/base/13.png"/>
+            <span id="analysis_rank"></span>
+        </a>
+
+    </div>
+</div>
+
+<!--主体-->
+<div id="canvasLoader2" class="canvasLoader"></div>
+<div class="detail_container">
+    <div >
+        <br/><br/>
+        <div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="exam" id="exam" style="float:left; position:absolute; width: 140px; height:18px" onchange="changeExam();"/>
+                </div>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <input style="float:left;width: 140px;margin-top:3px" id="start_date" name="start_date" type="text" placeholder=""/>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <input style="float:left;width: 140px;margin-top:3px"  id="end_date" name="end_date" type="text" placeholder=""/>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+        <div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="grade" id="grade" style="float:left; position:absolute; width: 140px;height:18px " onchange="changeGrade();"/>
+                </div>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="class" id="class" style="float:left; position:absolute; width: 140px;height:18px " onchange="changeClass();"/>
+                </div>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="student_id" id="student_id" style="float:left; position:absolute; width: 140px;height:18px " onchange="changeStudent();"/>
+                </div>
+            </div>
+            <div  style="float:left;width:150px;height:25px">
+                <button style="float:left;margin-top:1px" id="query_btn" class="btn btn-primary btn-xs btn-corner" align="right" onclick="queryGrades()"></button>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+        <br/><br/>
+
+        <div>
+            <div id="tb_dv">
+            <table id="gradesTable"></table>
+            <div id="gradesDiv"></div>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

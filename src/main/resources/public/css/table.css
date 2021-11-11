@@ -1,0 +1,41 @@
+
+div.grid{
+	border:#D7E1E1 solid 2px;
+	/*Radius*/
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+}
+
+table.grid{
+	background:#FFF;
+	border-collapse:collapse;
+	width:100%;;
+}
+.grid th{
+	color:#333;
+	text-align:center;
+	background:#E6ECEC;
+	padding:11px 2px;
+	border:1px solid #E6ECEC;
+}
+
+.grid a{
+	font-weight:bold;
+}
+
+.grid td{
+	width:30px;
+	color:#333;
+	padding:9px 2px;
+	/*text-align:center;*/
+	vertical-align:top;
+	border:1px solid #E6ECEC;
+	border-bottom:#E6ECEC solid 1px;
+}
+
+.grid td.pagination{
+	padding:11px 0;
+	text-align:center;
+	border-bottom:none;
+}

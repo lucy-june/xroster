@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>XRoster</title>
+
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-1.12.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/date-1.2.3/date.format.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-json-2.3/jquery.json.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jquery-i18n-properties-1.0.9/jquery.i18n.properties.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/main.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/grade_add.js"></script>
+    <!--<script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-cn.js"></script>-->
+    <script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/js/reveal.js"></script>
+
+    <link href="http://localhost:8080/lib/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/info.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/table.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/css/pager.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8080/lib/jquery-ui-1.11.4/themes/cupertino/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="http://localhost:8080/image/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:8080/lib/jqgrid-5.1.0/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="http://localhost:8080/css/reveal.css"/>
+
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/lib/canvasloader-1.0/index.css"/>
+    <script type="text/javascript" src="http://localhost:8080/lib/canvasloader-1.0/heartcode-canvasloader.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/lib/canvasloader-1.0/index.js"></script>
+    
+    <script src="http://localhost:8080/lib/sheetjs-0.8.0/jszip.js"></script>
+	<script src="http://localhost:8080/lib/sheetjs-0.8.0/xlsx.js"></script>
+	
+    <style type="text/css">
+        .fillleft {float:left;margin-left:10px;}
+        .info-input {width:100%;height:22px}
+        .btn-corner {width:100px;margin-bottom:20px}
+        .ui-jqgrid {z-index:0}
+        .ui-pg-input.ui-corner-all {height: 20px;color:#2779AA;}
+    </style>
+    <script>
+         $(function(){
+            $(window).bind('resize', function() {
+                jQuery("#gradesTable").setGridWidth($("#tb_dv").width()*0.95);
+            });
+        });
+    </script>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+	    $(function(){
+            var lang=[[${lang}]];
+            if(!lang){
+                document.getElementById("lang_select").options[0].selected = true;
+            }
+            else if(lang=="zh-CN"){
+                document.getElementById("lang_select").options[2].selected = true;
+            }
+            else{
+                document.getElementById("lang_select").options[1].selected = true;
+            }
+            changeLang();
+
+
+            var role=[[${role}]];
+
+            if(role==1){//teacher
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+            else if(role==2){//student
+                $(".header_left ul li:eq(0)").attr("style","display:none");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","display:none");
+                $(".header_left ul li:eq(4)").attr("style","display:none");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_add","/teacher_query"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_add","/student_query"));
+            }
+            else{
+                $(".header_left ul li:eq(0)").attr("style","");
+                $(".header_left ul li:eq(1)").attr("style","");
+                $(".header_left ul li:eq(2)").attr("style","");
+                $(".header_left ul li:eq(3)").attr("style","");
+                $(".header_left ul li:eq(4)").attr("style","");
+                $(".header_left ul li:eq(5)").attr("style","");
+                $(".header_left ul li:eq(6)").attr("style","");
+
+                $(".header_left ul li:eq(1) a").attr("href",$(".header_left ul li:eq(1) a").attr("href").replace("/teacher_query","/teacher_add"));
+                $(".header_left ul li:eq(2) a").attr("href",$(".header_left ul li:eq(2) a").attr("href").replace("/student_query","/student_add"));
+            }
+
+
+
+        });
+	/*]]>*/
+	</script>
+</head>
+<body>
+<!--头部-->
+
+<div class="header">
+    <div class="header_left">
+        <div class="logo">
+            <a id="logo_a" href="/main"><img src="http://localhost:8080/image/XRoster3_zh.png"/></a>
+            <div class="line"> </div>
+            <div class="logo2" id="welcome">
+            </div>
+        </div>
+        <ul class="tab">
+            <li>
+                <a href="/account_manage">
+                    <img src="http://localhost:8080/image/base/user.png"/> <span id="account_manage"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/teacher_add">
+                    <img src="http://localhost:8080/image/base/nav_1.png"/> <span id="teacher_info"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/student_add">
+                    <img src="http://localhost:8080/image/base/nav_9.png"/> <span id="student_info"></span>
+                </a>
+            </li>
+            <li class="tab_selected">
+                <a href="/custom_import">
+                    <img src="http://localhost:8080/image/base/nav_6.png"/> <span id="grade_management"></span>
+                </a>
+            </li>
+            <li>
+                <a href="attendance_add">
+                    <img src="http://localhost:8080/image/base/nav_4.png"/> <span id="attendance_management"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/analysis_table">
+                    <img src="http://localhost:8080/image/base/nav_5.png"/> <span id="grade_analysis"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/statistics_attendance">
+                    <img src="http://localhost:8080/image/base/nav_7.png"/> <span id="attendance_statistics"></span>
+                </a>
+            </li>
+        </ul>
+        <div >
+            <a href="/logout">
+                <button class="btn btn-primary btn-sm quit" align="right" type="submit" id="logout" onclick="pass()"></button>
+            </a>
+            <select class="lang_slt" id="lang_select" onchange="changeLang()">
+            	<option id="default_opt" value=""> </option>
+            	<option value="en-US"> English</option>
+            	<option value="zh-CN"> 中文</option>
+            </select> 
+        </div>
+
+    </div>
+</div>
+
+
+<div class="header_tab2">
+    <div class="top_nav">
+        <a class="top_nav" href="/custom_import">
+            <img src="http://localhost:8080/image/base/import.png"/>
+            <span id="custom_import"></span>
+        </a>
+        <a class="top_nav_selected" href="/grade_add">
+            <img src="http://localhost:8080/image/base/nav_0.png"/>
+            <span id="grade_add"></span>
+        </a>
+        <a class="top_nav" href="/grade_query">
+            <img src="http://localhost:8080/image/base/nav_8.png"/>
+            <span id="grade_query"></span>
+        </a>
+        <a class="top_nav" href="/gradesub_add">
+            <img src="http://localhost:8080/image/base/nav_0.png"/>
+            <span id="gradesub_add"></span>
+        </a>
+        <a class="top_nav" href="/gradesub_query">
+            <img src="http://localhost:8080/image/base/nav_8.png"/>
+            <span id="gradesub_query"></span>
+        </a>
+    </div>
+</div>
+
+<!--主体-->
+<div id="canvasLoader2" class="canvasLoader"></div>
+<div class="detail_container">
+    <div >
+        <br/><br/>
+        <div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="class" id="class" style="float:left; position:absolute; width: 140px;height:18px " onchange="changeClass();"/>
+                    <!-- <input type="text" name="class" id="class" value="" style="float:left;position:absolute; width:122px;height:18px;  border:1px solid"/> -->
+                </div>
+            </div>
+            <!--onclick="searchClassno(this.id)"-->
+           <!--  <a href="#" class="big-link" data-reveal-id="studentsModal">
+                <img id="class_img"  src="http://localhost:8080/image/search.png" onclick="searchClassno()"/>
+            </a> -->
+            <div style="clear:both"></div>
+        </div>
+
+        <div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                <select name="subject0" id="subject0" style="float:left; position:absolute; width: 140px; height:18px" onchange="changeSubject();"/>
+                <input type="text" name="subject" id="subject" value="" style="float:left;position:absolute; width:122px;height:18px;  border:1px solid" onkeyup="inputSubject()"/>
+            </div>
+            </div>
+
+            <div style="clear:both"></div>
+        </div>
+
+        <div>
+            <div style="float:left;width:150px;height:25px">
+                <div style="float:left;margin-top:3px">
+                    <select name="exam0" id="exam0" style="float:left; position:absolute; width: 140px;height:18px " onchange="changeExam();"/>
+                    <input type="text" name="exam" id="exam" value="" style="float:left;position:absolute; width:122px;height:18px;  border:1px solid" onkeyup="inputExam()"/>
+                </div>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <input style="float:left;margin-top:3px;width:140px" id="start_date" name="start_date" type="text" placeholder=""/>
+            </div>
+            <div style="float:left;width:150px;height:25px">
+                <input style="float:left;margin-top:3px;width:140px"  id="end_date" name="end_date" type="text" placeholder=""/>
+            </div>
+            
+            
+            <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange(event);"/>
+
+			<div style="float:left;height:22px;width:109px">
+				<!-- <input type="text" id="filename" style="float:left;height:22px;width:140px" readonly="true"/> -->
+				<input type="text" id="filename" style="float:left;height:18px;width:110px;margin-top:3px" readonly="true"/>
+			</div>
+
+			<div style="float:left;height:22px;width:80px">
+				<!-- <button style="float:left;width:140px;height:22px;width:80px" id="fakeBrowse" class="btn btn-default btn-xs btn-corner"  onclick="HandleBrowseClick()"></button> -->
+				<button id="fakeBrowse" style="float:left;height:18px;width:70px;margin-top:3px" onclick="HandleBrowseClick();"></button>
+			</div>
+
+            <button style="float:left;margin-top:1px" id="submit_btn" class="btn btn-success btn-xs btn-corner" align="right" onclick="addGrades()"></button>
+
+            <div style="clear:both"></div>
+        </div>
+
+		
+        <div>
+            <div id="tb_dv">
+                <table id="gradesTable"></table>
+                <div id="gradesDiv"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
