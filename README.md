@@ -4,6 +4,9 @@
   - 数据库基本设置: 为了方便开发，目前数据库服务器在win/postgres目录下, 我已经配置好账户，密码，并且已经建好了目前的数据库表，写入了一些测试数据。
   - 启动数据库服务器：数据库服务器在win/postgres目录下，双击win/exe/db.bat脚本，会弹出命令行窗口，请保持不要关闭，这时数据库服务器就开启了。
   - 浏览更改数据库表和数据：postgres提供了数据库的管理UI，双击win/postgres/bin/pgAdmin3.exe就可以进入数据库的管理界面，点击文件 > 添加服务器 > 输入一个任意的名称，主机输入localhost，端口输入5432，账户输入postgres，密码输入666666 > 点击确认即可将UI连接到数据库服务器，这时就可以在UI查看、更改表和数据了(具体请点击数据库-postgres-架构-public-数据表-随便选一个表右键查看数据)
+
+  - 您也可以从头配置数据库，下载postgresql 9.6: https://content-www.enterprisedb.com/postgresql-tutorial-resources-training?cid=71，安装Client端UI pgAdmin4: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.1/windows/pgadmin4-6.1-x64.exe， 恢复bootstrap数据用pgAdmin 4连接好数据库选择”public“ Schema然后右键Restore选择src\main\java\com\lucywu\xroster\model\bak_pgadmin_*.backup即可。
+
   - Session存储，需要起redis server：https://github.com/microsoftarchive/redis/releases/download/win-2.8.2401/Redis-x64-2.8.2401.msi
   
 ## Coding
