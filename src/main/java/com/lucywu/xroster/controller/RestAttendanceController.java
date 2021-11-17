@@ -33,7 +33,7 @@ public class RestAttendanceController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/attendance/getEventList
+    ///attendance/getEventList
     @RequestMapping("/attendance/getEventList")
     public List<Map<String,Object>> getEventList() {
         System.out.println("/attendance/getEventList");
@@ -41,7 +41,7 @@ public class RestAttendanceController {
         return jdbcTemplate.queryForList("select * from tbl_event order by start_date desc limit 1000;");
     }
 
-    //http://localhost:8080/attendance/addEvent?name=final event of 2015&start_date=2015-11-29&end_date=2015-12-31
+    ///attendance/addEvent?name=final event of 2015&start_date=2015-11-29&end_date=2015-12-31
     @RequestMapping("/attendance/addEvent")
     public String addEvent(String name, String start_date, String end_date){
         System.out.println("/attendance/addEvent "+name+" "+start_date+" "+end_date);
@@ -61,7 +61,7 @@ public class RestAttendanceController {
         return "S";
     }
 
-    //http://localhost:8080/attendance/addAttendance?state=1&remark=&event_id=2&student_id=2
+    ///attendance/addAttendance?state=1&remark=&event_id=2&student_id=2
     @RequestMapping("/attendance/addAttendance")
     public String addAttendance(Integer state, String remark, Integer event_id, Integer student_id){
         System.out.println("/attendance/addAttendance "+state+" "+remark+" "+event_id+" "+student_id);
@@ -82,7 +82,7 @@ public class RestAttendanceController {
         return "S";
     }
 
-    //http://localhost:8080/attendance/addAttendances?event_id=&name=2018-4-big event&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&
+    ///attendance/addAttendances?event_id=&name=2018-4-big event&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&
     @RequestMapping("/attendance/addAttendances")
     public String addAttendances(Integer event_id, String name, String start_date, String end_date, String[] remarks, Integer[] states, Integer[] student_ids){
         System.out.println("/attendance/addAttendances "+event_id+" "+name+" "+start_date+" "+end_date);
@@ -135,7 +135,7 @@ public class RestAttendanceController {
         return "S";
     }
 
-    //http://localhost:8080/attendance/queryAttendances?event_id=2&student_id=2&classno=F1510
+    ///attendance/queryAttendances?event_id=2&student_id=2&classno=F1510
     @RequestMapping("/attendance/queryAttendances")
     public List<Map<String,Object>> queryAttendances(Integer event_id, Integer student_id, String classno){
         System.out.println("/attendance/queryAttendances "+event_id+" "+student_id+" "+classno);
@@ -150,7 +150,7 @@ public class RestAttendanceController {
         return jdbcTemplate.queryForList(sql);
     }
     
-   //http://localhost:8080/attendance/queryExistedAttendances?classno=M1303&event_id=38
+   ///attendance/queryExistedAttendances?classno=M1303&event_id=38
     @RequestMapping("/attendance/queryExistedAttendances")
     public List<Map<String,Object>> queryExistedAttendances (Integer event_id, String classno){
         System.out.println("/attendance/queryExistedAttendances "+event_id+" "+classno);

@@ -28,7 +28,7 @@ public class RestStatisticsController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/statistics/queryStatistics?grade=M12&classno=M1201&student_id=11
+    ///statistics/queryStatistics?grade=M12&classno=M1201&student_id=11
     @RequestMapping("/statistics/queryStatistics")
     public Map<String,Object> queryStatistics(String grade,String classno,Integer student_id){
         System.out.println("/statistics/queryStatistics "+grade+" "+classno+" "+student_id);

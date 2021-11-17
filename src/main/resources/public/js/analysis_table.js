@@ -20,7 +20,7 @@ function initDateInput() {
 function loadProperties2(lang){
 //	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
 //		name:'strings', //资源文件名称
-//		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+//		path:'/asset/i18n/', //资源文件路径
 //		mode:'map', //用Map的方式使用资源文件中的值
 ////		language: 'zh-CN',
 //		language:lang,
@@ -406,7 +406,7 @@ function initialTable(){
 }
 
 
-//http://localhost:8080/analysis/queryGrades?exam_id=5&grade=M12&classno=M1201&student_id=11
+///analysis/queryGrades?exam_id=5&grade=M12&classno=M1201&student_id=11
 function queryGrades(){
     var exam_id=$("#exam").val();
     var grade=$("#grade").val();

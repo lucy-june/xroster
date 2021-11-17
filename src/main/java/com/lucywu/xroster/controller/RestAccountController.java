@@ -34,7 +34,7 @@ public class RestAccountController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/account/getTeachers
+    ///account/getTeachers
     @RequestMapping("/account/getTeachers")
     public List<Map<String,Object>> getTeachers() {
         System.out.println("/account/getTeachers");
@@ -42,7 +42,7 @@ public class RestAccountController {
         return jdbcTemplate.queryForList("select * from vi_teachers order by id asc");
     }
 
-    //http://localhost:8080/account/getClasses
+    ///account/getClasses
     @RequestMapping("/account/getClasses")
     public List<Map<String,Object>> getClasses() {
         System.out.println("/account/getClasses");
@@ -51,7 +51,7 @@ public class RestAccountController {
     	return jdbcTemplate.queryForList("select distinct classno, grade from vi_teachers order by classno asc");
     }
 
-    //http://localhost:8080/account/getGrades
+    ///account/getGrades
     @RequestMapping("/account/getGrades")
     public List<Map<String,Object>> getGrades() {
         System.out.println("/account/getGrades");
@@ -59,7 +59,7 @@ public class RestAccountController {
         return jdbcTemplate.queryForList("select grade from vi_teachers group by grade order by grade asc");
     }
 
-    //http://localhost:8080/account/queryAccounts?rows=3&page=2&sidx=id&sord=desc
+    ///account/queryAccounts?rows=3&page=2&sidx=id&sord=desc
     @RequestMapping("/account/queryAccounts")
     public Map<String,Object> queryAccounts(Integer rows,Integer page,String sidx, String sord){
         System.out.println("/account/queryAccounts "+rows+" "+page+" "+sidx+" "+sord);
@@ -82,7 +82,7 @@ public class RestAccountController {
         return result;
     }
 
-    //http://localhost:8080/account/createAccount?teacher_id=123&student_id=1129
+    ///account/createAccount?teacher_id=123&student_id=1129
     @RequestMapping("/account/createAccount")
     public Map<String,Object> createAccount(Integer teacher_id, Integer student_id){
         System.out.println("/account/createAccount "+teacher_id+" "+student_id);
@@ -159,7 +159,7 @@ public class RestAccountController {
         return null;
     }
 
-    //http://localhost:8080/account/forgetAccount?email=981088636@qq.com
+    ///account/forgetAccount?email=981088636@qq.com
     @RequestMapping("/account/forgetAccount")
     public String forgetAccount(String email){
         String str= jdbcTemplate.queryForObject("select password from tbl_account where email=?",new Object[]{email}, String.class);
@@ -168,7 +168,7 @@ public class RestAccountController {
         return "F";
     }
 
-    //http://localhost:8080/account/reset
+    ///account/reset
     @RequestMapping("/account/reset")
     public String reset() {
         System.out.println("/account/reset");
@@ -183,7 +183,7 @@ public class RestAccountController {
         return "S";
     }
 
-    //http://localhost:8080/account/test
+    ///account/test
     @RequestMapping("/account/test")
     public String test() {
         System.out.println("/account/test");

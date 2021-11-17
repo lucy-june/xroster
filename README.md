@@ -1,19 +1,21 @@
 # Development Environment Setup
 
 ## Database
+  - 系统要求 windows 2016 server base/ windows 2016 server data center/ windows 7.
   - 数据库基本设置: 为了方便开发，目前数据库服务器在win/postgres目录下, 我已经配置好账户，密码，并且已经建好了目前的数据库表，写入了一些测试数据。
   - 启动数据库服务器：数据库服务器在win/postgres目录下，双击win/exe/db.bat脚本，会弹出命令行窗口，请保持不要关闭，这时数据库服务器就开启了。
   - 浏览更改数据库表和数据：postgres提供了数据库的管理UI，双击win/postgres/bin/pgAdmin3.exe就可以进入数据库的管理界面，点击文件 > 添加服务器 > 输入一个任意的名称，主机输入localhost，端口输入5432，账户输入postgres，密码输入666666 > 点击确认即可将UI连接到数据库服务器，这时就可以在UI查看、更改表和数据了(具体请点击数据库-postgres-架构-public-数据表-随便选一个表右键查看数据)
 
   - 您也可以从头配置数据库，下载postgresql 9.6: https://content-www.enterprisedb.com/postgresql-tutorial-resources-training?cid=71，安装Client端UI pgAdmin4: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.1/windows/pgadmin4-6.1-x64.exe， 恢复bootstrap数据用pgAdmin 4连接好数据库选择”public“ Schema然后右键Restore选择src\main\java\com\lucywu\xroster\model\bak_pgadmin_*.backup即可。
 
-  - Session存储，需要起redis server：https://github.com/microsoftarchive/redis/releases/download/win-2.8.2401/Redis-x64-2.8.2401.msi
+  - Session存储，需要起redis server：https://github.com/microsoftarchive/redis/releases/download/win-2.8.2401/Redis-x64-2.8.2401.msi 如果机器内存有限需要设置maxheap，打开redis.windows-service.conf, 编辑maxheap <bytes> to maxheap 64M, 在“Services”里面，重启redis服务。
   
 ## Coding
   - 安装jdk并配置环境变量：网上直接下载jdk8, https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html，设置JAVA_HOME和PATH环境变量
   - 安装eclipse java EE: https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2018-12/R/eclipse-jee-2018-12-R-win32-x86_64.zip
   - 导入项目源代码: 打开eclipse > File > Import > Maven > Existing Maven Projects > 然后root directory里找到成绩分析系统代码code文件夹 > 点击Finish就可以了
   - 运行main函数: 找到源代码src/main/.../Application.java，右键菜单选择Run As > Run Configurations > Arguments > VM Arguments 里面输入 "-Dspring.profiles.active=production -Dserver.port=8080"。然后点击运行，如果运行成功，最后一行会显示Started Application in *** seconds (JVM running for ***) 
+  -或者在命令行运行代码，$ mvnw package 去生成执行文件到target/，然后 $ www.bat 去启动程序
   - 浏览网站页面：打开浏览器输入http://localhost:8080, 即可看到登录页面，可以用以下测试账户登录账号test@qq.com密码123，所有账号密码可以见数据库的tbl_account表
  
 ## Framework & Language

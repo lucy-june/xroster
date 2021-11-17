@@ -1,4 +1,4 @@
-/*tab页锟斤拷锟斤拷图锟斤拷锟斤拷 | 锟斤拷锟竭对憋拷 | 锟斤拷荻员锟� */
+/*tabé¡µé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·å›¾é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· | é”Ÿæ–¤æ‹·é”Ÿç«­å¯¹æ†‹æ‹· | é”Ÿæ–¤æ‹·è�»å‘˜é”Ÿï¿½ */
 .left_top{height:60%;border-bottom:1px #E3E3E3 solid;padding:30px;}
 .left_bottom{padding: 30px;}
 .font_title{font-size: 15px;font-weight:bold;margin: 10px;}
@@ -16,27 +16,27 @@ input .name{width:20px;}
 .duichang_result{padding: 5px;overflow: auto;}
 .duichang_item{padding: 5px;}
 
-/*tab页锟斤拷PM2.5 | PM10 | 锟斤拷锟斤拷 */
+/*tabé¡µé”Ÿæ–¤æ‹·PM2.5 | PM10 | é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· */
 .header_tab3{width:100%;height:39px; border-bottom:1px #85b75f solid; background:#f3f1f2; overflow:hidden;}
 .header_tab3_selected span{color:#fa7d3c;}
 .header_tab3 a span:hover{color:#fa7d3c;}
 .tab2 span {position:relative;left:-14px;}
 .tab2{width:300px;height:35px; float:right;margin-right:50px; margin-top:6px;}
 .tab2 li{width:68px;height:34px; float:left; text-align:center; line-height:35px;font-size:14px; margin-left:7px;background:url(/v3/images/main/frame.png);}
-.tab2 li a{ color:#878686; display:block; text-decoration:none;font-family:"微锟斤拷锟脚猴拷";}
+.tab2 li a{ color:#878686; display:block; text-decoration:none;font-family:"å¾®é”Ÿæ–¤æ‹·é”Ÿè„šçŒ´æ‹·";}
 
-/*tab页锟斤拷实时锟斤拷锟� | 小时锟斤拷锟� */
+/*tabé¡µé”Ÿæ–¤æ‹·å®žæ—¶é”Ÿæ–¤æ‹·é”Ÿï¿½ | å°�æ—¶é”Ÿæ–¤æ‹·é”Ÿï¿½ */
 .header_tab4{width:100%;height:60px; position:relative;}
 .time_type{width:186px;height:36px; margin:12px auto;}
 .time_type li{ float:left;width:93px;height:36px;}
-.time_type li a{ font-size:16px; display:block; text-decoration:none;font-family:"微锟斤拷锟脚猴拷"; }
+.time_type li a{ font-size:16px; display:block; text-decoration:none;font-family:"å¾®é”Ÿæ–¤æ‹·é”Ÿè„šçŒ´æ‹·"; }
 .time_type_selected{ background:url(/v3/images/main/data.png); color:#FFFFFF;width:93px;height:36px; text-align:center; line-height:36px;}
 .time_type_unselected{ background:url(/v3/images/main/data1.png); color:#6dac33;width:93px;height:36px; text-align:center; line-height:36px;}
 
 .main_container{width:100%;position:absolute;top:150px;bottom:35px;overflow:auto;}
 .top_right_recv_time{position:absolute;top:-40px;right:100px;float:right;}
-.top_right_recv_time span{position:relative;top:4px;font-family:"微锟斤拷锟脚猴拷";font-size:18px;}
-/*锟斤拷图锟斤拷锟斤拷*/
+.top_right_recv_time span{position:relative;top:4px;font-family:"å¾®é”Ÿæ–¤æ‹·é”Ÿè„šçŒ´æ‹·";font-size:18px;}
+/*é”Ÿæ–¤æ‹·å›¾é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·*/
 .map_canvas{top:0px;bottom:30px;left:20px;right:20px;position:absolute; margin:0 auto;}
 .tip{position: absolute;top:0;background: gainsboro;width:100%;height: 7%;padding:10px;filter:alpha(opacity=70);
     -moz-opacity:0.7;
@@ -50,21 +50,21 @@ input .name{width:20px;}
 .notification_time .real_time{display: inline-block;}
 
 .direction{height:19px;right:20px;margin:auto auto;position:absolute;bottom:40px;}
-.direction span{font-family:"微锟斤拷锟脚猴拷"; font-size:10px;}
+.direction span{font-family:"å¾®é”Ÿæ–¤æ‹·é”Ÿè„šçŒ´æ‹·"; font-size:10px;}
 .choose_district{width:100px;}
-/*锟斤拷锟竭对憋拷*/
+/*é”Ÿæ–¤æ‹·é”Ÿç«­å¯¹æ†‹æ‹·*/
 .curve_container{width:90%;height:95%;margin:auto;border:1px #E3E3E3 solid;margin-top: 30px;}
 .curve_canvas{left:20px;right:20px;position:absolute;}
 .curve_compare_tab_selected{}
 .curve_time{font-size: 14px;position:absolute;right:150px;top:100px;}
 .curve_refresh{width: 60px;height: 20px;position:absolute;right:70px;top:100px;}
-/*锟斤拷荻员锟�*/
+/*é”Ÿæ–¤æ‹·è�»å‘˜é”Ÿï¿½*/
 .data_compare_canvas{width:100%;}
 
 .choose_pop{position:absolute;width: 160px;height: 118px;}
 .choose_pop img{position:absolute;max-width:160px;_width:expression(this.width > 160 ? "160px" : this.width);}
-.choose_pop .upbtn{position:absolute;top:20px;margin-left:30px;width:100px;height:30px;background:url(http://localhost:8080/images/compare/but1.png); }
-.choose_pop .downbtn{position:absolute;top:60px;margin-left:30px;width:100px;height:30px;background:url(http://localhost:8080/images/compare/but2.png); }
+.choose_pop .upbtn{position:absolute;top:20px;margin-left:30px;width:100px;height:30px;background:url(/images/compare/but1.png); }
+.choose_pop .downbtn{position:absolute;top:60px;margin-left:30px;width:100px;height:30px;background:url(/images/compare/but2.png); }
 
 .detail_container{width:77%; margin:0 auto; overflow:auto;}
 

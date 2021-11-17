@@ -2,7 +2,7 @@
 function loadProperties(lang){
     	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
     		name:'strings', //资源文件名称
-    		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+    		path:'/asset/i18n/', //资源文件路径
     		mode:'map', //用Map的方式使用资源文件中的值
 //    		language:'zh-CN',
     		language:lang,
@@ -144,7 +144,7 @@ function loadjscssfile(filename,filetype){
 //else {
 //     baseLang = navigator.language.substring(0,2).toLowerCase();
 //}
-//loadjscssfile("http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-"+baseLang+".js","js");
+//loadjscssfile("/lib/jqgrid-5.1.0/js/i18n/grid.locale-"+baseLang+".js","js");
 
 
 //$(function(){
@@ -155,7 +155,7 @@ function loadjscssfile(filename,filetype){
 //    else {
 //         baseLang = navigator.language.substring(0,2).toLowerCase();
 //    }
-//    loadjscssfile("http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-"+baseLang+".js","js");
+//    loadjscssfile("/lib/jqgrid-5.1.0/js/i18n/grid.locale-"+baseLang+".js","js");
 //})
 
 
@@ -185,7 +185,7 @@ function changeLang(){
 //	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
 //		name:'strings', //资源文件名称
 //		language: lang,
-//		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+//		path:'/asset/i18n/', //资源文件路径
 //		mode:'map', //用Map的方式使用资源文件中的值
 //		callback: function() {//加载成功后设置显示内容
 //		}
@@ -217,16 +217,16 @@ function changeLang(){
     
     try{
     	if(lang=="cn"||lang=="zh"||lang=="zh_CN"||lang=="zh-CN"|| ((baseLang=="zh"||baseLang=="cn")&&!lang))
-    		$("#index_header").attr("style","background-image: url('http://localhost:8080/image/XRoster_zh.png');background-size:196px;height:100px");
+    		$("#index_header").attr("style","background-image: url('/image/XRoster_zh.png');background-size:196px;height:100px");
     	else
-    		$("#index_header").attr("style","background-image: url('http://localhost:8080/image/XRoster.png');background-size:160px;height:100px");
+    		$("#index_header").attr("style","background-image: url('/image/XRoster.png');background-size:160px;height:100px");
     }catch(e){}
     
     try{
     	if(lang=="cn"||lang=="zh"||lang=="zh_CN"||lang=="zh-CN"|| ((baseLang=="zh"||baseLang=="cn")&&!lang))
-    		$("#logo_a").html("<img src='http://localhost:8080/image/XRoster3_zh.png'/>");
+    		$("#logo_a").html("<img src='/image/XRoster3_zh.png'/>");
     	else
-    		$("#logo_a").html("<img src='http://localhost:8080/image/XRoster3.png'/>");
+    		$("#logo_a").html("<img src='/image/XRoster3.png'/>");
     }catch(e){}
 }
 

@@ -8,24 +8,24 @@
 
     <title>XRoster</title>
 
-    <script type="text/javascript" src="http://localhost:8080/lib/jquery-1.12.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/lib/date-1.2.3/date.format.js"></script>
-	<script type="text/javascript" src="http://localhost:8080/lib/jquery-json-2.3/jquery.json.min.js"></script>
-	<script type="text/javascript" src="http://localhost:8080/lib/jquery-i18n-properties-1.0.9/jquery.i18n.properties.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/lib/jqgrid-5.1.0/js/i18n/grid.locale-en.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/js/main.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/js/teacher_add.js"></script>
+    <script type="text/javascript" src="/lib/jquery-1.12.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/date-1.2.3/date.format.js"></script>
+	<script type="text/javascript" src="/lib/jquery-json-2.3/jquery.json.min.js"></script>
+	<script type="text/javascript" src="/lib/jquery-i18n-properties-1.0.9/jquery.i18n.properties.js"></script>
+    <script type="text/javascript" src="/lib/jqgrid-5.1.0/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/teacher_add.js"></script>
 
-    <link href="http://localhost:8080/lib/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="http://localhost:8080/css/reset.css" rel="stylesheet" type="text/css"/>
-    <link href="http://localhost:8080/css/base.css" rel="stylesheet" type="text/css"/>
-    <link href="http://localhost:8080/css/info.css" rel="stylesheet" type="text/css"/>
-    <link href="http://localhost:8080/css/table.css" rel="stylesheet" type="text/css"/>
-    <link href="http://localhost:8080/css/pager.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" href="http://localhost:8080/image/favicon.ico"/>
-    <link href="http://localhost:8080/lib/jquery-ui-1.11.4/themes/flick/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/lib/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/info.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/table.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/pager.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="/image/favicon.ico"/>
+    <link href="/lib/jquery-ui-1.11.4/themes/flick/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         .fillleft {float:left;margin-left:10px;}
         .info-input {width:100%;height:22px}
@@ -101,7 +101,7 @@
 <div class="header">
     <div class="header_left">
         <div class="logo">
-            <a id="logo_a" href="/main"><img src="http://localhost:8080/image/XRoster3_zh.png"/></a>
+            <a id="logo_a" href="/main"><img src="/image/XRoster3_zh.png"/></a>
             <div class="line"> </div>
             <div class="logo2" id="welcome">
             </div>
@@ -109,37 +109,37 @@
         <ul class="tab">
             <li>
                 <a href="/account_manage">
-                    <img src="http://localhost:8080/image/base/user.png"/> <span id="account_manage"></span>
+                    <img src="/image/base/user.png"/> <span id="account_manage"></span>
                 </a>
             </li>
             <li class="tab_selected">
                 <a href="/teacher_add">
-                    <img src="http://localhost:8080/image/base/nav_1.png"/> <span id="teacher_info"></span>
+                    <img src="/image/base/nav_1.png"/> <span id="teacher_info"></span>
                 </a>
             </li>
             <li>
                 <a href="/student_add">
-                    <img src="http://localhost:8080/image/base/nav_9.png"/> <span id="student_info"></span>
+                    <img src="/image/base/nav_9.png"/> <span id="student_info"></span>
                 </a>
             </li>
             <li>
                 <a href="/custom_import">
-                    <img src="http://localhost:8080/image/base/nav_6.png"/> <span id="grade_management"></span>
+                    <img src="/image/base/nav_6.png"/> <span id="grade_management"></span>
                 </a>
             </li>
             <li>
                 <a href="attendance_add">
-                    <img src="http://localhost:8080/image/base/nav_4.png"/> <span id="attendance_management"></span>
+                    <img src="/image/base/nav_4.png"/> <span id="attendance_management"></span>
                 </a>
             </li>
             <li>
                 <a href="/analysis_table">
-                    <img src="http://localhost:8080/image/base/nav_5.png"/> <span id="grade_analysis"></span>
+                    <img src="/image/base/nav_5.png"/> <span id="grade_analysis"></span>
                 </a>
             </li>
             <li>
                 <a href="/statistics_attendance">
-                    <img src="http://localhost:8080/image/base/nav_7.png"/> <span id="attendance_statistics"></span>
+                    <img src="/image/base/nav_7.png"/> <span id="attendance_statistics"></span>
                 </a>
             </li>
         </ul>
@@ -161,11 +161,11 @@
 <div class="header_tab2">
     <div class="top_nav">
         <a class="top_nav_selected" href="/teacher_add">
-            <img src="http://localhost:8080/image/base/nav_0.png"/>
+            <img src="/image/base/nav_0.png"/>
             <span id="teacher_add"></span>
         </a>
         <a class="top_nav" href="/teacher_query">
-            <img src="http://localhost:8080/image/base/nav_8.png"/>
+            <img src="/image/base/nav_8.png"/>
             <span id="teacher_query"></span>
         </a>
     </div>
@@ -194,7 +194,7 @@
                                         <input type="text" name="class" id="class" value="" style="float:left;position:absolute; width:122px;height:18px ; border:1px solid"/>
                                     </div>
                                 </div>
-                                <a href="#"><img style="float:left;" src="http://localhost:8080/image/add.png" onclick="addClass()"/></a>
+                                <a href="#"><img style="float:left;" src="/image/add.png" onclick="addClass()"/></a>
                                 <div style="clear:both"></div>
                             </div>
 
@@ -204,7 +204,7 @@
                                         <input type="text"  value="" style="float:left;position:absolute; width:140px;height:22px  border:1px solid"/>
                                     </div>
                                 </div>
-                                <img id="class_img_F12" style="float:left;" src="http://localhost:8080/image/delete.png" onclick="deleteClass(this.id)"/>
+                                <img id="class_img_F12" style="float:left;" src="/image/delete.png" onclick="deleteClass(this.id)"/>
                                 <div style="clear:both"></div>
                             </div>-->
 

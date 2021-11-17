@@ -20,7 +20,7 @@ function initDateInput() {
 function loadProperties2(lang){
 //	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
 //		name:'strings', //资源文件名称
-//		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+//		path:'/asset/i18n/', //资源文件路径
 //		mode:'map', //用Map的方式使用资源文件中的值
 ////		language: 'zh-CN',
 //		language:lang,
@@ -293,7 +293,7 @@ function searchClassno(){
         return;
     }
 //    alert(classno);
-//    http://localhost:8080/student/queryStudentsAdv?classno=F1502&rows=3&page=2&sidx=id&sord=desc
+//    /student/queryStudentsAdv?classno=F1502&rows=3&page=2&sidx=id&sord=desc
 
     $.ajax({ 'async': true,
                        'url': '/student/queryStudentsAdv',
@@ -319,7 +319,7 @@ function searchClassno(){
 
 var lastClassno=null;
 var isNoRealData=0;
-//http://localhost:8080/grade/queryExistedGrades?classno=M1303&exam_id=38&subject=English
+///grade/queryExistedGrades?classno=M1303&exam_id=38&subject=English
 function searchClassnoSubjectExam(){
 	var classno=$("#class").val();
 	var subject=$("#subject").val();

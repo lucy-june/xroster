@@ -20,7 +20,7 @@ function initDateInput() {
 function loadProperties2(lang){
 //	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
 //		name:'strings', //资源文件名称
-//		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+//		path:'/asset/i18n/', //资源文件路径
 //		mode:'map', //用Map的方式使用资源文件中的值
 ////		language: 'zh-CN',
 //		language:lang,
@@ -318,7 +318,7 @@ var classes2=[];
 
 
 
-//http://localhost:8080/statistics/queryStatistics?grade=M12&classno=M1201&student_id=11
+///statistics/queryStatistics?grade=M12&classno=M1201&student_id=11
 function queryStatistics(){
     var grade=$("#grade").val();
     var classno=$("#class").val();
@@ -372,7 +372,7 @@ function queryStatistics(){
 function loadPie(data){
     require.config({
                         paths: {
-                            echarts: 'http://localhost:8080/lib/echarts-2.2.7'
+                            echarts: '/lib/echarts-2.2.7'
             				//echarts: 'http://echarts.baidu.com/build/dist'
                         }
                     });

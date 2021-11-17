@@ -32,7 +32,7 @@ public class RestGradeController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/grade/getExamList
+    ///grade/getExamList
     @RequestMapping("/grade/getExamList")
     public List<Map<String,Object>> getExamList() {
         System.out.println("/grade/getExamList");
@@ -40,7 +40,7 @@ public class RestGradeController {
         return jdbcTemplate.queryForList("select * from tbl_exam order by start_date  desc limit 1000;");
     }
 
-    //http://localhost:8080/grade/getSubjectList
+    ///grade/getSubjectList
     @RequestMapping("/grade/getSubjectList")
     public List<String> getSubjectList() {
         System.out.println("/grade/getSubjectList");
@@ -49,7 +49,7 @@ public class RestGradeController {
     }
 
 
-    //http://localhost:8080/grade/addExam?name=final exam of 2015&start_date=2015-11-29&end_date=2015-12-31
+    ///grade/addExam?name=final exam of 2015&start_date=2015-11-29&end_date=2015-12-31
     @RequestMapping("/grade/addExam")
     public String addExam(String name, String start_date, String end_date){
         System.out.println("/grade/addExam "+name+" "+start_date+" "+end_date);
@@ -69,7 +69,7 @@ public class RestGradeController {
         return "S";
     }
 
-    //http://localhost:8080/grade/addGrade?subject=math&point=98&exam_id=2&student_id=2
+    ///grade/addGrade?subject=math&point=98&exam_id=2&student_id=2
     @RequestMapping("/grade/addGrade")
     public String addGrade(String subject, Double point, Integer exam_id, Integer student_id){
         System.out.println("/grade/addGrade "+subject+" "+point+" "+exam_id+" "+student_id);
@@ -90,7 +90,7 @@ public class RestGradeController {
         return "S";
     }
 
-    //http://localhost:8080/grade/addGrades?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&
+    ///grade/addGrades?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&
     @RequestMapping("/grade/addGrades")
     public String addGrades(Integer exam_id, String name, String start_date, String end_date, String subject, Double[] points, Integer[] student_ids){
         System.out.println("/grade/addGrades "+exam_id+" "+name+" "+start_date+" "+end_date+" "+subject);
@@ -142,7 +142,7 @@ public class RestGradeController {
         return "S";
     }
 
-    //http://localhost:8080/grade/cstimport?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&objs=[]
+    ///grade/cstimport?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&objs=[]
     @RequestMapping(value = "/grade/cstimport", method = RequestMethod.POST)
     public String cstimport(Integer exam_id, String name, String start_date, String end_date, String subject, String objs){
         System.out.println("/grade/cstimport "+exam_id+" "+name+" "+start_date+" "+end_date+" "+subject);
@@ -294,7 +294,7 @@ public class RestGradeController {
     }
 
 
-    //http://localhost:8080/grade/addGradesubs?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&subjectsubs=reading&subjectsubs=writing
+    ///grade/addGradesubs?exam_id=&name=2018-4-big exam&start_date=2018-4-3&end_date=2018-4-4&subject=chemistry&points=98&student_ids=2&points=96&student_ids=3&subjectsubs=reading&subjectsubs=writing
     @RequestMapping("/grade/addGradesubs")
     public String addGradesubs(Integer exam_id, String name, String start_date, String end_date, String subject, Double[] points, Integer[] student_ids,String[] subjectsubs){
         System.out.println("/grade/addGradesubs "+exam_id+" "+name+" "+start_date+" "+end_date+" "+subject);
@@ -348,7 +348,7 @@ public class RestGradeController {
         return "S";
     }
 
-    //http://localhost:8080/grade/queryGrades?subject=math&exam_id=2&student_id=2&classno=F1510
+    ///grade/queryGrades?subject=math&exam_id=2&student_id=2&classno=F1510
     @RequestMapping("/grade/queryGrades")
     public List<Map<String,Object>> queryGrades(String subject, Integer exam_id, Integer student_id, String classno){
         System.out.println("/grade/queryGrades "+subject+" "+exam_id+" "+student_id+" "+classno);
@@ -364,7 +364,7 @@ public class RestGradeController {
         return jdbcTemplate.queryForList(sql);
     }
     
-   //http://localhost:8080/grade/queryExistedGrades?classno=M1303&exam_id=38&subject=English
+   ///grade/queryExistedGrades?classno=M1303&exam_id=38&subject=English
     @RequestMapping("/grade/queryExistedGrades")
     public List<Map<String,Object>> queryExistedGrades (String subject, Integer exam_id, String classno){
         System.out.println("/grade/queryExistedGrades "+subject+" "+exam_id+" "+classno);
@@ -376,7 +376,7 @@ public class RestGradeController {
         return jdbcTemplate.queryForList(sql,classno,exam_id,subject);
     }
 
-    //http://localhost:8080/grade/queryExistedGradesubs?classno=M1303&exam_id=38&subject=English
+    ///grade/queryExistedGradesubs?classno=M1303&exam_id=38&subject=English
     @RequestMapping("/grade/queryExistedGradesubs")
     public List<Map<String,Object>> queryExistedGradesubs (String subject, Integer exam_id, String classno){
         System.out.println("/grade/queryExistedGradesubs "+subject+" "+exam_id+" "+classno);

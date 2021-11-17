@@ -28,7 +28,7 @@ public class RestAnalysisController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/analysis/getStudents
+    ///analysis/getStudents
     @RequestMapping("/analysis/getStudents")
     public List<Map<String,Object>> getStudents() {
         System.out.println("/analysis/getStudents");
@@ -36,7 +36,7 @@ public class RestAnalysisController {
         return jdbcTemplate.queryForList("select * from vi_students order by id asc");
     }
 
-    //http://localhost:8080/analysis/getClasses
+    ///analysis/getClasses
     @RequestMapping("/analysis/getClasses")
     public List<Map<String,Object>> getClasses() {
         System.out.println("/analysis/getClasses");
@@ -44,7 +44,7 @@ public class RestAnalysisController {
         return jdbcTemplate.queryForList("select distinct classno, grade from vi_students order by classno asc");
     }
 
-    //http://localhost:8080/analysis/getGrades
+    ///analysis/getGrades
     @RequestMapping("/analysis/getGrades")
     public List<Map<String,Object>> getGrades() {
         System.out.println("/analysis/getGrades");
@@ -52,7 +52,7 @@ public class RestAnalysisController {
         return jdbcTemplate.queryForList("select grade from vi_students group by grade order by grade asc");
     }
 
-    //http://localhost:8080/analysis/getSubjects
+    ///analysis/getSubjects
     @RequestMapping("/analysis/getSubjects")
     public List<String> getSubjects(){
         System.out.println("/analysis/getSubjects");
@@ -60,7 +60,7 @@ public class RestAnalysisController {
         return jdbcTemplate.queryForList("select distinct subject from tbl_grade order by subject asc", String.class);
     }
 
-    //http://localhost:8080/analysis/getSubjectsubs
+    ///analysis/getSubjectsubs
     @RequestMapping("/analysis/getSubjectsubs")
     public List<String> getSubjectsubs(Integer exam_id, String subject){
         System.out.println("/analysis/getSubjectsubs "+ exam_id+" "+subject);
@@ -74,7 +74,7 @@ public class RestAnalysisController {
     }
 
 
-    //http://localhost:8080/analysis/queryGrades?exam_id=5&grade=M12&classno=M1201&student_id=11
+    ///analysis/queryGrades?exam_id=5&grade=M12&classno=M1201&student_id=11
     @RequestMapping("/analysis/queryGrades")
     public List<Map<String,Object>> queryGrades(Integer exam_id,String grade,String classno,Integer student_id){
         System.out.println("/analysis/queryGrades "+exam_id+" "+grade+" "+classno+" "+student_id);
@@ -145,7 +145,7 @@ public class RestAnalysisController {
     }
 
 
-    //http://localhost:8080/analysis/queryGradesubs?exam_id=42&grade=X19&classno=X1902&subject=数学
+    ///analysis/queryGradesubs?exam_id=42&grade=X19&classno=X1902&subject=数学
     @RequestMapping("/analysis/queryGradesubs")
     public List<Map<String,Object>> queryGradesubs(Integer exam_id,String grade,String classno,Integer student_id,String subject){
         System.out.println("/analysis/queryGradesubs "+exam_id+" "+grade+" "+classno+" "+student_id);
@@ -216,7 +216,7 @@ public class RestAnalysisController {
 
 
 
-    //http://localhost:8080/analysis/queryRadar?grade=M12&classno=M1201&student_id=11
+    ///analysis/queryRadar?grade=M12&classno=M1201&student_id=11
     @RequestMapping("/analysis/queryRadar")
     public List<Map<String,Object>> queryRadar(String grade,String classno,Integer student_id){
         System.out.println("/analysis/queryRadar "+grade+" "+classno+" "+student_id);
@@ -237,7 +237,7 @@ public class RestAnalysisController {
     }
 
 
-    //http://localhost:8080/analysis/queryRadarsub?grade=M12&classno=M1201&student_id=11&subject=数学
+    ///analysis/queryRadarsub?grade=M12&classno=M1201&student_id=11&subject=数学
     @RequestMapping("/analysis/queryRadarsub")
     public List<Map<String,Object>> queryRadarsub(String grade,String classno,Integer student_id,String subject){
         System.out.println("/analysis/queryRadarsub "+grade+" "+classno+" "+student_id+" "+subject);
@@ -258,7 +258,7 @@ public class RestAnalysisController {
     }
 
 
-    //http://localhost:8080/analysis/queryStages?exam_id=41&subject=Chinese&grade=M12&classno=M1201&a=10&b=20&c=30&d=40&e=50&f=60&g=70
+    ///analysis/queryStages?exam_id=41&subject=Chinese&grade=M12&classno=M1201&a=10&b=20&c=30&d=40&e=50&f=60&g=70
     @RequestMapping("/analysis/queryStages")
     public Map<String,Object> queryStages(Integer exam_id,String subject, String grade,String classno,
                                                 Double a, Double b, Double c, Double d, Double e, Double f, Double g){
@@ -355,7 +355,7 @@ public class RestAnalysisController {
     }
 
 
-    //http://localhost:8080/analysis/queryPointRank?subject=Chinese&grade=M12&classno=M1201&student_id=11
+    ///analysis/queryPointRank?subject=Chinese&grade=M12&classno=M1201&student_id=11
     @RequestMapping("/analysis/queryPointRank")
     public List<Map<String,Object>> queryPointRank(String subject, String grade,String classno,Integer student_id){
         System.out.println("/analysis/queryPointRank "+subject+" "+grade+" "+classno+" "+student_id);

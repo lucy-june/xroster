@@ -20,7 +20,7 @@ function initDateInput() {
 function loadProperties2(lang){
 //	jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
 //		name:'strings', //资源文件名称
-//		path:'http://localhost:8080/asset/i18n/', //资源文件路径
+//		path:'/asset/i18n/', //资源文件路径
 //		mode:'map', //用Map的方式使用资源文件中的值
 ////		language: 'zh-CN',
 //		language:lang,
@@ -102,7 +102,7 @@ function addClass(){
               '<input type="text"  value="'+classno+'" style="float:left;position:absolute; width:140px;height:22px  border:1px solid"/>'+
               '</div>'+
               '</div>'+
-              '<a href="#"><img id="class_img_'+classno+'" style="float:left;" src="http://localhost:8080/image/delete.png" onclick="deleteClass(this.id)"/></a>'+
+              '<a href="#"><img id="class_img_'+classno+'" style="float:left;" src="/image/delete.png" onclick="deleteClass(this.id)"/></a>'+
               '<div style="clear:both"></div>'+
               '</div>'
     );

@@ -33,7 +33,7 @@ public class RestTeacherController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/teacher/getClassList
+    ///teacher/getClassList
     @RequestMapping("/teacher/getClassList")
     public List<String> getClassList() {
         System.out.println("/teacher/getClassList");
@@ -42,7 +42,7 @@ public class RestTeacherController {
         return result;
     }
 
-    //http://localhost:8080/teacher/addTeacher?name=lucy&email=abc@qq.com&telephone=15216711966&birthday=1991-1-1&location=usa&start_date=2015-1-1&contract_date=2018-10-1&title=vp&subject=english&sex=true&is_advisor=true&classno=F1308&classno=F1510
+    ///teacher/addTeacher?name=lucy&email=abc@qq.com&telephone=15216711966&birthday=1991-1-1&location=usa&start_date=2015-1-1&contract_date=2018-10-1&title=vp&subject=english&sex=true&is_advisor=true&classno=F1308&classno=F1510
     @RequestMapping("/teacher/addTeacher")
     public String addTeacher(String[] classnos,String name,String email,String telephone, String birthday, String location,
                                    String start_date, String contract_date, String title, String subject,
@@ -104,7 +104,7 @@ public class RestTeacherController {
         return ""+id;
     }
 
-    //http://localhost:8080/teacher/queryTeachers?classno=2222
+    ///teacher/queryTeachers?classno=2222
     @RequestMapping("/teacher/queryTeachers")
     public List<Map<String,Object>> queryTeachers(String classno){
         System.out.println("/teacher/queryTeachers "+classno);
@@ -112,7 +112,7 @@ public class RestTeacherController {
         return jdbcTemplate.queryForList("select * from tbl_class,tbl_teacher where tbl_class.teacher_id=tbl_teacher.id and classno=?",classno);
     }
 
-    //http://localhost:8080/teacher/queryTeachersAdv?classno=F1510&rows=3&page=2&sidx=id&sord=desc
+    ///teacher/queryTeachersAdv?classno=F1510&rows=3&page=2&sidx=id&sord=desc
     @RequestMapping("/teacher/queryTeachersAdv")
     public Map<String,Object> queryTeachersAdv(String classno,Integer rows,Integer page,String sidx, String sord){
         System.out.println("/teacher/queryTeachersAdv "+classno+" "+rows+" "+page+" "+sidx+" "+sord);
@@ -135,7 +135,7 @@ public class RestTeacherController {
         return result;
     }
 
-    //http://localhost:8080/teacher/queryTeacherDetail?id=5
+    ///teacher/queryTeacherDetail?id=5
     @RequestMapping("/teacher/queryTeacherDetail")
     public Map<String,Object> queryTeacherDetail(Integer id){
         System.out.println("/teacher/queryTeacherDetail "+id);
@@ -143,7 +143,7 @@ public class RestTeacherController {
         return jdbcTemplate.queryForMap("select * from tbl_teacher where id=?",id);
     }
 
-    //http://localhost:8080/teacher/queryClassnos?id=9
+    ///teacher/queryClassnos?id=9
     @RequestMapping("/teacher/queryClassnos")
     public List<String> queryClassnos(Integer id){
         System.out.println("/teacher/queryClassnos "+id);

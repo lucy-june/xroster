@@ -36,7 +36,7 @@ public class RestStudentController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //http://localhost:8080/student/getClassList
+    ///student/getClassList
     @RequestMapping("/student/getClassList")
     public List<String> getClassList() {
         System.out.println("/student/getClassList");
@@ -45,7 +45,7 @@ public class RestStudentController {
         return result;
     }
 
-    //http://localhost:8080/student/addStudent?name=xiaoli&email=xiaoli1235@qq.com&birthday=1990-2-3&sex=false&location=beijing&telephone=1383838338&classno=F1502&names=fatherli&relations=father&telephones=1585858558&birthdays=1946-1-1&sexs=true&locations=beijing&job_companies=morgan&job_titles=vp&job_duties=tech&names=motherli&relations=mother&telephones=1565656556&birthdays=1948-2-1&sexs=false&locations=&job_companies=intel&job_titles=an&job_duties=
+    ///student/addStudent?name=xiaoli&email=xiaoli1235@qq.com&birthday=1990-2-3&sex=false&location=beijing&telephone=1383838338&classno=F1502&names=fatherli&relations=father&telephones=1585858558&birthdays=1946-1-1&sexs=true&locations=beijing&job_companies=morgan&job_titles=vp&job_duties=tech&names=motherli&relations=mother&telephones=1565656556&birthdays=1948-2-1&sexs=false&locations=&job_companies=intel&job_titles=an&job_duties=
     @RequestMapping("/student/addStudent")
     public String addStudent(String name,String birthday,String sex,String location, String telephone,String classno,String email,
                              String[] names,String[] relations, String[] telephones,String[] birthdays,String[] sexs,
@@ -130,7 +130,7 @@ public class RestStudentController {
         return ""+id;
     }
     
-    //http://localhost:8080/student/addStudents?names=xiaoli&emails=xiaoli1235@qq.com&birthdays=1990-2-3&sexs=false&locations=beijing&telephones=1383838338&classno=F1502
+    ///student/addStudents?names=xiaoli&emails=xiaoli1235@qq.com&birthdays=1990-2-3&sexs=false&locations=beijing&telephones=1383838338&classno=F1502
     @RequestMapping("/student/addStudents")
     public String addStudents(String classno,String[] ids, String[] names,String[] birthdays,String[] sexs,String[] locations, String[] telephones,String[] emails) {
         System.out.println("/student/addStudents "+classno);
@@ -245,7 +245,7 @@ public class RestStudentController {
         return "S";
     }
 
-    //http://localhost:8080/student/queryStudents?classno=F1502
+    ///student/queryStudents?classno=F1502
     @RequestMapping("/student/queryStudents")
     public List<Map<String,Object>> queryTeacher(String classno){
         System.out.println("/student/queryStudents "+classno);
@@ -253,7 +253,7 @@ public class RestStudentController {
         return jdbcTemplate.queryForList("select * from tbl_student where classno=?",classno);
     }
 
-    //http://localhost:8080/student/queryStudentsAdv?classno=F1502&rows=3&page=2&sidx=id&sord=desc
+    ///student/queryStudentsAdv?classno=F1502&rows=3&page=2&sidx=id&sord=desc
     @RequestMapping("/student/queryStudentsAdv")
     public Map<String,Object> queryStudentsAdv(String classno,Integer rows,Integer page,String sidx, String sord){
         System.out.println("/student/queryStudentsAdv "+classno+" "+rows+" "+page+" "+sidx+" "+sord);
@@ -276,7 +276,7 @@ public class RestStudentController {
         return result;
     }
 
-    //http://localhost:8080/student/queryStudentDetail?id=2
+    ///student/queryStudentDetail?id=2
     @RequestMapping("/student/queryStudentDetail")
     public Map<String,Object> queryStudentDetail(Integer id){
         System.out.println("/student/queryStudentDetail "+id);
@@ -284,7 +284,7 @@ public class RestStudentController {
         return jdbcTemplate.queryForMap("select * from tbl_student where id=?",id);
     }
 
-    //http://localhost:8080/student/queryStudentGuardians?id=2
+    ///student/queryStudentGuardians?id=2
     @RequestMapping("/student/queryStudentGuardians")
     public List<Map<String,Object>> queryStudentGuardians(Integer id){
         System.out.println("/student/queryStudentGuardians "+id);
