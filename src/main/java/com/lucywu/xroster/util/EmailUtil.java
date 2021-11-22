@@ -38,8 +38,8 @@ public class EmailUtil {
         props.put("mail.debug", "true");
         props.put("mail.store.protocol", "pop3");
         props.put("mail.transport.protocol", "smtp");
-        final String email = "shuimuyanyuan@qq.com";
-        final String password = "qetuoadgjlzcbm";
+        final String email = "my-test-email@qq.com";
+        final String password = "REDACTED";
         try {
             Session session = Session.getDefaultInstance(props,
                     new Authenticator() {
