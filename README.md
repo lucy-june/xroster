@@ -1,4 +1,4 @@
-# Development Environment Setup
+# Development/Demo Environment Setup
 
 ## Database
   - 系统要求 windows 2016 server base/ windows 2016 server data center/ windows 7.
